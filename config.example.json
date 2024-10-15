@@ -1,0 +1,20 @@
+{
+  "database": "",
+
+  "clientId": "",
+  "clientSecret": "",
+  "botToken": "",
+
+  "baseUri": "",
+  "redirectUri": "",
+
+  "loginHookId": "",
+  "loginHookToken": "",
+  "actionHookId": "",
+  "actionHookToken": "",
+
+  "jwtToken": "",
+
+  "guildId": "",
+  "admin": []
+}
