@@ -1,0 +1,30 @@
+<div class="card bg-dark my-2 text-center" style="height: 360px;">
+    <div class="card-body d-flex flex-column justify-content-between pb-2">
+        <div>
+            <p class="h4 card-title">
+                <%= template.name.length > 40 ? template.name.slice(0, 40) + '...' : template.name %>
+            </p>
+            <p class="card-text">
+                <%= template.description ? template.description : 'No description available.' %>
+            </p>
+        </div>
+        <div class="h5">
+            <span class="badge badge-success mb-1" style="font-weight: 500;">
+                <%= template.usage %> Uses
+            </span>
+            <div class="<%= template.tag2 != null ? 'd-block' : 'd-inline-block' %>">
+                <span class="badge badge-info ml-1" style="font-weight: 500;">
+                    <%= template.tag1.charAt(0).toUpperCase() + template.tag1.slice(1); %>
+                </span>
+                <% if (template.tag2 != null) { %>
+                    <span class="badge badge-info ml-1" style="font-weight: 500;">
+                        <%= template.tag2.charAt(0).toUpperCase() + template.tag2.slice(1); %>
+                    </span>
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-center">
+        <a href="/templates/<%= template.guild %>" class="btn btn-outline-success">View Template</a>
+    </div>
+</div>
