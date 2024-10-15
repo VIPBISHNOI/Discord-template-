@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head') %>
+</head>
+
+<body class="error">
+<%- include('partials/navbar', {user: user}) %>
+<div class="main-content">
+    <div class="container mt-5 mb-4">
+        <div class="align-items-center text-center mb-4">
+            <h1 class="mb-0 display-1"><%= heading %></h1>
+            <h1 class="mb-0 display-4"><%= title %></h1>
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card bg-dark shadow py-4">
+                            <div class="card-header bg-transparent border-0">
+                                <p class="h4 text-center"><%= description %></p>
+                            </div>
+                            <div class="card-body text-center">
+                                <% if (locals.buttonText != null) { %>
+                                    <a class="btn btn-primary mr-2 mb-2" href="<%= buttonLink %>"
+                                       role="button"><%= buttonText %></a>
+                                <% } %>
+                                <a class="btn btn-primary mb-2" href="/" role="button">Back to Home</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('partials/footer') %>
+</div>
+<%- include('partials/foot') %>
+</body>
+
+</html>

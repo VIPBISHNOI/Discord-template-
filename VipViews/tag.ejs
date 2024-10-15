@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head', {title: tag.charAt(0).toUpperCase() + tag.slice(1)}) %>
+</head>
+
+<body class="category">
+<%- include('partials/navbar', {user: user}) %>
+<div class="main-content">
+    <div class="container mt-5 mb-4">
+        <div class="align-items-center mb-4">
+            <h1>Tag</h1>
+            <h2 class="h5">Browse templates by tag.</h2>
+        </div>
+        <a role="button" class="btn btn-outline-info btn-sm btn-pill font-weight-bold mb-2"
+           href="/tags/community">Community</a>
+        <a role="button" class="btn btn-outline-info btn-sm btn-pill font-weight-bold mb-2"
+           href="/tags/gaming">Gaming</a>
+        <a role="button" class="btn btn-outline-info btn-sm btn-pill font-weight-bold mb-2"
+           href="/tags/roleplay">Roleplay</a>
+        <a role="button" class="btn btn-outline-info btn-sm btn-pill font-weight-bold mb-2"
+           href="/tags/friends">Friends</a>
+        <a role="button" class="btn btn-outline-info btn-sm btn-pill font-weight-bold mb-2"
+           href="/tags/art">Art</a>
+        <a role="button" class="btn btn-outline-info btn-sm btn-pill font-weight-bold mb-2"
+           href="/tags/music">Music</a>
+        <a role="button" class="btn btn-outline-info btn-sm btn-pill font-weight-bold mb-2"
+           href="/tags/meme">Meme</a>
+        <a role="button" class="btn btn-outline-info btn-sm btn-pill font-weight-bold mb-2"
+           href="/tags/economy">Economy</a>
+        <a role="button" class="btn btn-outline-info btn-sm btn-pill font-weight-bold mb-2"
+           href="/tags/coding">Coding</a>
+        <a role="button" class="btn btn-outline-info btn-sm btn-pill font-weight-bold mb-2"
+           href="/tags/learning">Learning</a>
+        <a role="button" class="btn btn-outline-info btn-sm btn-pill font-weight-bold mb-2"
+           href="/tags/support">Support</a>
+        <div class="row mt-4">
+            <% if (templates.length === 0) { %>
+                <div class="col text-center">
+                    <p class="display-3">:(</p>
+                    <p class="h5 mt-4">No result found.</p>
+                </div>
+            <% } else { %>
+                <% for (let [index, element] of templates.entries()) { %>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <%- include('partials/card', {template: element}) %>
+                    </div>
+                <% } %>
+            <% } %>
+        </div>
+        <div class="mt-4 text-center">
+            <a role="button" class="btn btn-secondary mb-0<%= page === 1 ? ' disabled' : '' %>"
+               href="/tags/<%= tag %>?page=<%= page - 1 %>">Previous</a>
+            <a role="button" class="btn btn-secondary mb-0 ml-2"
+               href="/tags/<%= tag %>?&page=<%= page + 1 %>">Next</a>
+        </div>
+    </div>
+    <%- include('partials/footer') %>
+</div>
+<%- include('partials/foot') %>
+</body>
+
+</html>
